@@ -1,10 +1,13 @@
-# RMCP: Rust Model Context Protocol
+# agenterra-rmcp: Rust Model Context Protocol
 
-`rmcp` is the official Rust implementation of the Model Context Protocol (MCP), a protocol designed for AI assistants to communicate with other services. This library can be used to build both servers that expose capabilities to AI assistants and clients that interact with such servers.
+`agenterra-rmcp` is an Agenterra fork of the official Rust implementation of the Model Context Protocol (MCP), a protocol designed for AI assistants to communicate with other services. This library can be used to build both servers that expose capabilities to AI assistants and clients that interact with such servers.
 
-wait for the first release.
-<!-- [![Crates.io](todo)](todo)
-[![Documentation](todo)](todo) -->
+[![Crates.io](https://img.shields.io/crates/v/agenterra-rmcp)](https://crates.io/crates/agenterra-rmcp)
+[![Documentation](https://docs.rs/agenterra-rmcp/badge.svg)](https://docs.rs/agenterra-rmcp)
+
+## Attribution
+
+This crate is based on the official MCP Rust SDK. Original repository: https://github.com/modelcontextprotocol/rust-sdk
 
 
 
@@ -15,7 +18,7 @@ wait for the first release.
 Creating a server with tools is simple using the `#[tool]` macro:
 
 ```rust, ignore
-use rmcp::{Error as McpError, ServiceExt, model::*, tool, tool_router, transport::stdio, handler::server::tool::ToolCallContext, handler::server::router::tool::ToolRouter};
+use agenterra_rmcp::{Error as McpError, ServiceExt, model::*, tool, tool_router, transport::stdio, handler::server::tool::ToolCallContext, handler::server::router::tool::ToolRouter};
 use std::sync::Arc;
 use tokio::sync::Mutex;
 
@@ -54,7 +57,7 @@ impl Counter {
 
 // Implement the server handler
 #[tool_handler]
-impl rmcp::ServerHandler for Counter {
+impl agenterra_rmcp::ServerHandler for Counter {
     fn get_info(&self) -> ServerInfo {
         ServerInfo {
             instructions: Some("A simple calculator".into()),
@@ -82,7 +85,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
 Creating a client to interact with a server:
 
 ```rust, ignore
-use rmcp::{
+use agenterra_rmcp::{
     model::CallToolRequestParam,
     service::ServiceExt,
     transport::{TokioChildProcess, ConfigureCommandExt}
@@ -139,7 +142,7 @@ Run MCP servers as child processes and communicate via standard I/O.
 
 Example:
 ```rust
-use rmcp::transport::TokioChildProcess;
+use agenterra_rmcp::transport::TokioChildProcess;
 use tokio::process::Command;
 
 let transport = TokioChildProcess::new(Command::new("mcp-server"))?;
@@ -153,7 +156,7 @@ let service = client.serve(transport).await?;
 You can get the [`Peer`](crate::service::Peer) struct from [`NotificationContext`](crate::service::NotificationContext) and [`RequestContext`](crate::service::RequestContext).
 
 ```rust, ignore
-# use rmcp::{
+# use agenterra_rmcp::{
 #     ServerHandler,
 #     model::{LoggingLevel, LoggingMessageNotificationParam, ProgressNotificationParam},
 #     service::{NotificationContext, RoleServer},
@@ -190,7 +193,7 @@ let service = service.into_dyn();
 
 ## Feature Flags
 
-RMCP uses feature flags to control which components are included:
+`agenterra-rmcp` uses feature flags to control which components are included:
 
 - `client`: Enable client functionality
 - `server`: Enable server functionality and the tool system

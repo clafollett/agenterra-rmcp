@@ -85,7 +85,7 @@ cargo run --example clients_oauth_client
 
 These examples use the following main dependencies:
 
-- `rmcp`: Rust implementation of the MCP client library
+- `agenterra-rmcp`: Rust implementation of the MCP client library
 - `tokio`: Asynchronous runtime
 - `serde` and `serde_json`: For JSON serialization and deserialization
 - `tracing` and `tracing-subscriber`: For logging, not must, only for logging

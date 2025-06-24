@@ -1,12 +1,16 @@
-# rmcp-macros
+# agenterra-rmcp-macros
 
-`rmcp-macros` is a procedural macro library for the Rust Model Context Protocol (RMCP) SDK, providing macros that facilitate the development of RMCP applications.
+`agenterra-rmcp-macros` is a procedural macro library for the Rust Model Context Protocol (MCP) SDK, providing macros that facilitate the development of MCP applications.
+
+## Attribution
+
+This crate is based on the official MCP Rust SDK macros. Original repository: https://github.com/modelcontextprotocol/rust-sdk
 
 ## Features
 
 This library primarily provides the following macros:
 
-- `#[tool]`: Used to mark functions as RMCP tools, automatically generating necessary metadata and invocation mechanisms
+- `#[tool]`: Used to mark functions as MCP tools, automatically generating necessary metadata and invocation mechanisms
 
 ## Usage
 
@@ -14,7 +18,7 @@ This library primarily provides the following macros:
 
 This macro is used to mark a function as a tool handler.
 
-This will generate a function that return the attribute of this tool, with type `rmcp::model::Tool`.
+This will generate a function that return the attribute of this tool, with type `agenterra_rmcp::model::Tool`.
 
 #### Usage
 
@@ -36,7 +40,7 @@ pub async fn my_tool(param: Parameters<MyToolParam>) {
 
 ### tool_router
 
-This macro is used to generate a tool router based on functions marked with `#[rmcp::tool]` in an implementation block.
+This macro is used to generate a tool router based on functions marked with `#[tool]` in an implementation block.
 
 It creates a function that returns a `ToolRouter` instance.
 
@@ -134,7 +138,7 @@ impl ServerHandler for MyToolHandler {
         &self,
         request: CallToolRequestParam,
         context: RequestContext<RoleServer>,
-    ) -> Result<CallToolResult, rmcp::Error> {
+    ) -> Result<CallToolResult, agenterra_rmcp::Error> {
         let tcc = ToolCallContext::new(self, request, context);
         self.tool_router.call(tcc).await
     }
@@ -143,7 +147,7 @@ impl ServerHandler for MyToolHandler {
         &self,
         _request: Option<PaginatedRequestParam>,
         _context: RequestContext<RoleServer>,
-    ) -> Result<ListToolsResult, rmcp::Error> {
+    ) -> Result<ListToolsResult, agenterra_rmcp::Error> {
         let items = self.tool_router.list_all();
         Ok(ListToolsResult::with_all_items(items))
     }
