@@ -104,7 +104,8 @@ async fn test_with_python_server() -> anyhow::Result<()> {
     init().await?;
 
     let transport = TokioChildProcess::new(tokio::process::Command::new("uv").configure(|cmd| {
-        cmd.arg("run").arg("crates/rmcp/tests/test_with_python/server.py");
+        cmd.arg("run")
+            .arg("crates/rmcp/tests/test_with_python/server.py");
     }))?;
 
     let client = ().serve(transport).await?;
