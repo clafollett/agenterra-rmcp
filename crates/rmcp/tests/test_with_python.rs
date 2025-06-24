@@ -19,7 +19,7 @@ async fn init() -> anyhow::Result<()> {
         .try_init();
     tokio::process::Command::new("uv")
         .args(["pip", "install", "--system", "-r", "pyproject.toml"])
-        .current_dir("tests/test_with_python")
+        .current_dir("crates/rmcp/tests/test_with_python")
         .spawn()?
         .wait()
         .await?;
@@ -38,7 +38,7 @@ async fn test_with_python_client() -> anyhow::Result<()> {
 
     let status = tokio::process::Command::new("uv")
         .arg("run")
-        .arg("tests/test_with_python/client.py")
+        .arg("crates/rmcp/tests/test_with_python/client.py")
         .arg(format!("http://{BIND_ADDRESS}/sse"))
         .spawn()?
         .wait()
@@ -88,7 +88,7 @@ async fn test_nested_with_python_client() -> anyhow::Result<()> {
         tokio::time::Duration::from_secs(5),
         tokio::process::Command::new("uv")
             .arg("run")
-            .arg("tests/test_with_python/client.py")
+            .arg("crates/rmcp/tests/test_with_python/client.py")
             .arg(format!("http://{BIND_ADDRESS}/nested/sse"))
             .spawn()?
             .wait(),
@@ -104,7 +104,7 @@ async fn test_with_python_server() -> anyhow::Result<()> {
     init().await?;
 
     let transport = TokioChildProcess::new(tokio::process::Command::new("uv").configure(|cmd| {
-        cmd.arg("run").arg("tests/test_with_python/server.py");
+        cmd.arg("run").arg("crates/rmcp/tests/test_with_python/server.py");
     }))?;
 
     let client = ().serve(transport).await?;
