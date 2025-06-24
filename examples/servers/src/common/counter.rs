@@ -1,7 +1,7 @@
 #![allow(dead_code)]
 use std::sync::Arc;
 
-use rmcp::{
+use agenterra_rmcp::{
     Error as McpError, RoleServer, ServerHandler,
     handler::server::{router::tool::ToolRouter, tool::Parameters},
     model::*,

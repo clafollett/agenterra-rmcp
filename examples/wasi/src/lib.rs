@@ -1,7 +1,7 @@
 pub mod calculator;
 use std::task::{Poll, Waker};
 
-use rmcp::ServiceExt;
+use agenterra_rmcp::ServiceExt;
 use tokio::io::{AsyncRead, AsyncWrite};
 use tracing_subscriber::EnvFilter;
 use wasi::{

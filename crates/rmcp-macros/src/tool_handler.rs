@@ -27,20 +27,20 @@ pub fn tool_handler(attr: TokenStream, input: TokenStream) -> syn::Result<TokenS
     let tool_call_fn = quote! {
         async fn call_tool(
             &self,
-            request: rmcp::model::CallToolRequestParam,
-            context: rmcp::service::RequestContext<rmcp::RoleServer>,
-        ) -> Result<rmcp::model::CallToolResult, rmcp::Error> {
-            let tcc = rmcp::handler::server::tool::ToolCallContext::new(self, request, context);
+            request: agenterra_rmcp::model::CallToolRequestParam,
+            context: agenterra_rmcp::service::RequestContext<agenterra_rmcp::RoleServer>,
+        ) -> Result<agenterra_rmcp::model::CallToolResult, agenterra_rmcp::Error> {
+            let tcc = agenterra_rmcp::handler::server::tool::ToolCallContext::new(self, request, context);
             #router.call(tcc).await
         }
     };
     let tool_list_fn = quote! {
         async fn list_tools(
             &self,
-            _request: Option<rmcp::model::PaginatedRequestParam>,
-            _context: rmcp::service::RequestContext<rmcp::RoleServer>,
-        ) -> Result<rmcp::model::ListToolsResult, rmcp::Error> {
-            Ok(rmcp::model::ListToolsResult::with_all_items(#router.list_all()))
+            _request: Option<agenterra_rmcp::model::PaginatedRequestParam>,
+            _context: agenterra_rmcp::service::RequestContext<agenterra_rmcp::RoleServer>,
+        ) -> Result<agenterra_rmcp::model::ListToolsResult, agenterra_rmcp::Error> {
+            Ok(agenterra_rmcp::model::ListToolsResult::with_all_items(#router.list_all()))
         }
     };
     let tool_call_fn = syn::parse2::<ImplItem>(tool_call_fn)?;

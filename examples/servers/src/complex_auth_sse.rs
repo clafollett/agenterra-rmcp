@@ -12,7 +12,7 @@ use axum::{
     routing::{get, post},
 };
 use rand::{Rng, distr::Alphanumeric};
-use rmcp::transport::{
+use agenterra_rmcp::transport::{
     SseServer,
     auth::{
         AuthorizationMetadata, ClientRegistrationRequest, ClientRegistrationResponse,

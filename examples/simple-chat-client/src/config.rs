@@ -1,7 +1,7 @@
 use std::{collections::HashMap, path::Path, process::Stdio};
 
 use anyhow::Result;
-use rmcp::{RoleClient, ServiceExt, service::RunningService, transport::ConfigureCommandExt};
+use agenterra_rmcp::{RoleClient, ServiceExt, service::RunningService, transport::ConfigureCommandExt};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -46,7 +46,7 @@ impl McpServerTransportConfig {
         let client = match self {
             McpServerTransportConfig::Sse { url } => {
                 let transport =
-                    rmcp::transport::sse_client::SseClientTransport::start(url.to_owned()).await?;
+                    agenterra_rmcp::transport::sse_client::SseClientTransport::start(url.to_owned()).await?;
                 ().serve(transport).await?
             }
             McpServerTransportConfig::Stdio {
@@ -54,7 +54,7 @@ impl McpServerTransportConfig {
                 args,
                 envs,
             } => {
-                let transport = rmcp::transport::child_process::TokioChildProcess::new(
+                let transport = agenterra_rmcp::transport::child_process::TokioChildProcess::new(
                     tokio::process::Command::new(command).configure(|cmd| {
                         cmd.args(args)
                             .envs(envs)

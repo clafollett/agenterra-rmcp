@@ -1,5 +1,5 @@
 mod tests {
-    use rmcp::model::{ClientJsonRpcMessage, ServerJsonRpcMessage};
+    use agenterra_rmcp::model::{ClientJsonRpcMessage, ServerJsonRpcMessage};
     use schemars::schema_for;
 
     #[test]

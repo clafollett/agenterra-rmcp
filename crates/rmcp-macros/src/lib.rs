@@ -8,7 +8,7 @@ mod tool_router;
 ///
 /// This macro is used to mark a function as a tool handler.
 ///
-/// This will generate a function that return the attribute of this tool, with type `rmcp::model::Tool`.
+/// This will generate a function that return the attribute of this tool, with type `agenterra_rmcp::model::Tool`.
 ///
 /// ## Usage
 ///
@@ -36,7 +36,7 @@ pub fn tool(attr: TokenStream, input: TokenStream) -> TokenStream {
 
 /// # tool_router
 ///
-/// This macro is used to generate a tool router based on functions marked with `#[rmcp::tool]` in an implementation block.
+/// This macro is used to generate a tool router based on functions marked with `#[agenterra_rmcp::tool]` in an implementation block.
 ///
 /// It creates a function that returns a `ToolRouter` instance.
 ///

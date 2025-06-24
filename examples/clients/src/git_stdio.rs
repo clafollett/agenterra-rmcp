@@ -1,5 +1,5 @@
 use anyhow::Result;
-use rmcp::{
+use agenterra_rmcp::{
     model::CallToolRequestParam,
     service::ServiceExt,
     transport::{ConfigureCommandExt, TokioChildProcess},

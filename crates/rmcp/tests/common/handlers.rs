@@ -3,7 +3,7 @@ use std::{
     sync::{Arc, Mutex},
 };
 
-use rmcp::{
+use agenterra_rmcp::{
     ClientHandler, Error as McpError, RoleClient, RoleServer, ServerHandler,
     model::*,
     service::{NotificationContext, RequestContext},

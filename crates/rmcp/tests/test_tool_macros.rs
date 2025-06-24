@@ -2,7 +2,7 @@
 #![allow(dead_code)]
 use std::sync::Arc;
 
-use rmcp::{
+use agenterra_rmcp::{
     ClientHandler, ServerHandler, ServiceExt,
     handler::server::{router::tool::ToolRouter, tool::Parameters},
     model::{CallToolRequestParam, ClientInfo},

@@ -35,8 +35,8 @@ impl ResolvedToolAttribute {
             quote! { None }
         };
         let tokens = quote! {
-            pub fn #fn_ident() -> rmcp::model::Tool {
-                rmcp::model::Tool {
+            pub fn #fn_ident() -> agenterra_rmcp::model::Tool {
+                agenterra_rmcp::model::Tool {
                     name: #name.into(),
                     description: #description,
                     input_schema: #input_schema,
@@ -153,12 +153,12 @@ pub fn tool(attr: TokenStream, input: TokenStream) -> syn::Result<TokenStream> {
         if let Some(params_ty) = params_ty {
             // if found, use the Parameters schema
             syn::parse2::<Expr>(quote! {
-                rmcp::handler::server::tool::cached_schema_for_type::<#params_ty>()
+                agenterra_rmcp::handler::server::tool::cached_schema_for_type::<#params_ty>()
             })?
         } else {
             // if not found, use the default EmptyObject schema
             syn::parse2::<Expr>(quote! {
-                rmcp::handler::server::tool::cached_schema_for_type::<rmcp::model::EmptyObject>()
+                agenterra_rmcp::handler::server::tool::cached_schema_for_type::<agenterra_rmcp::model::EmptyObject>()
             })?
         }
     };
@@ -180,7 +180,7 @@ pub fn tool(attr: TokenStream, input: TokenStream) -> syn::Result<TokenStream> {
         let idempotent_hint = wrap_option(idempotent_hint);
         let open_world_hint = wrap_option(open_world_hint);
         let token_stream = quote! {
-            Some(rmcp::model::ToolAnnotations {
+            Some(agenterra_rmcp::model::ToolAnnotations {
                 title: #title,
                 read_only_hint: #read_only_hint,
                 destructive_hint: #destructive_hint,

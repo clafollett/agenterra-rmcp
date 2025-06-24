@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use rmcp::{
+use agenterra_rmcp::{
     ServerHandler,
     handler::server::{router::tool::ToolRouter, tool::Parameters},
     model::{ServerCapabilities, ServerInfo},

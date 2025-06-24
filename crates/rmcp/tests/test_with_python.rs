@@ -1,5 +1,5 @@
 use axum::Router;
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     transport::{ConfigureCommandExt, SseServer, TokioChildProcess, sse_server::SseServerConfig},
 };
@@ -18,7 +18,7 @@ async fn init() -> anyhow::Result<()> {
         .with(tracing_subscriber::fmt::layer())
         .try_init();
     tokio::process::Command::new("uv")
-        .args(["pip", "install", "-r", "pyproject.toml"])
+        .args(["pip", "install", "--system", "-r", "pyproject.toml"])
         .current_dir("tests/test_with_python")
         .spawn()?
         .wait()

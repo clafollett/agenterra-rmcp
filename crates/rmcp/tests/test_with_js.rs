@@ -1,4 +1,4 @@
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     service::QuitReason,
     transport::{

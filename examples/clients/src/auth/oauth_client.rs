@@ -7,7 +7,7 @@ use axum::{
     response::Html,
     routing::get,
 };
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::ClientInfo,
     transport::{

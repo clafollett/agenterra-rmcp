@@ -226,7 +226,7 @@
     },
     "ClientCapabilities": {
       "title": "Builder",
-      "description": "```rust # use rmcp::model::ClientCapabilities; let cap = ClientCapabilities::builder() .enable_experimental() .enable_roots() .enable_roots_list_changed() .build(); ```",
+      "description": "```rust # use agenterra_rmcp::model::ClientCapabilities; let cap = ClientCapabilities::builder() .enable_experimental() .enable_roots() .enable_roots_list_changed() .build(); ```",
       "type": "object",
       "properties": {
         "experimental": {

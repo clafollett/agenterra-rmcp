@@ -2,7 +2,7 @@
 
 mod common;
 use common::handlers::{TestClientHandler, TestServer};
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::*,
     service::{RequestContext, Service},

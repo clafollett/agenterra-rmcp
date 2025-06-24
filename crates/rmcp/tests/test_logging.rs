@@ -4,7 +4,7 @@ mod common;
 use std::sync::{Arc, Mutex};
 
 use common::handlers::{TestClientHandler, TestServer};
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::{LoggingLevel, LoggingMessageNotificationParam, SetLevelRequestParam},
 };

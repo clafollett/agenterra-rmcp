@@ -1,5 +1,5 @@
 use anyhow::Result;
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::{CallToolRequestParam, ClientCapabilities, ClientInfo, Implementation},
     transport::StreamableHttpClientTransport,

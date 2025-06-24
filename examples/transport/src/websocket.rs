@@ -2,7 +2,7 @@ use std::marker::PhantomData;
 
 use common::calculator::Calculator;
 use futures::{Sink, Stream};
-use rmcp::{
+use agenterra_rmcp::{
     RoleClient, RoleServer, ServiceExt,
     service::{RunningService, RxJsonRpcMessage, ServiceRole, TxJsonRpcMessage},
 };

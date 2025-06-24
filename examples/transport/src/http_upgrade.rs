@@ -5,7 +5,7 @@ use hyper::{
     header::{HeaderValue, UPGRADE},
 };
 use hyper_util::rt::TokioIo;
-use rmcp::{RoleClient, ServiceExt, service::RunningService};
+use agenterra_rmcp::{RoleClient, ServiceExt, service::RunningService};
 use tracing_subscriber::EnvFilter;
 mod common;
 #[tokio::main]

@@ -42,7 +42,7 @@ pub struct RootsCapabilities {
 ///
 /// # Builder
 /// ```rust
-/// # use rmcp::model::ClientCapabilities;
+/// # use agenterra_rmcp::model::ClientCapabilities;
 /// let cap = ClientCapabilities::builder()
 ///     .enable_experimental()
 ///     .enable_roots()
@@ -63,7 +63,7 @@ pub struct ClientCapabilities {
 ///
 /// ## Builder
 /// ```rust
-/// # use rmcp::model::ServerCapabilities;
+/// # use agenterra_rmcp::model::ServerCapabilities;
 /// let cap = ServerCapabilities::builder()
 ///     .enable_logging()
 ///     .enable_experimental()

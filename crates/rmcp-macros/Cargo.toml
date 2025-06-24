@@ -1,15 +1,15 @@
 
 
 [package]
-name = "rmcp-macros"
+name = "agenterra-rmcp-macros"
 license = { workspace = true }
 version = { workspace = true }
 edition = { workspace = true }
 repository = { workspace = true }
 homepage = { workspace = true }
 readme = { workspace = true }
-description = "Rust SDK for Model Context Protocol macros library"
-documentation = "https://docs.rs/rmcp-macros"
+description = "Agenterra fork of Rust SDK for Model Context Protocol macros library"
+documentation = "https://docs.rs/agenterra-rmcp-macros"
 
 [lib]
 proc-macro = true
