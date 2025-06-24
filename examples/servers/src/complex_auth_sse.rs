@@ -1,5 +1,13 @@
 use std::{collections::HashMap, net::SocketAddr, sync::Arc, time::Duration};
 
+use agenterra_rmcp::transport::{
+    SseServer,
+    auth::{
+        AuthorizationMetadata, ClientRegistrationRequest, ClientRegistrationResponse,
+        OAuthClientConfig,
+    },
+    sse_server::SseServerConfig,
+};
 use anyhow::Result;
 use askama::Template;
 use axum::{
@@ -12,14 +20,6 @@ use axum::{
     routing::{get, post},
 };
 use rand::{Rng, distr::Alphanumeric};
-use agenterra_rmcp::transport::{
-    SseServer,
-    auth::{
-        AuthorizationMetadata, ClientRegistrationRequest, ClientRegistrationResponse,
-        OAuthClientConfig,
-    },
-    sse_server::SseServerConfig,
-};
 use serde::{Deserialize, Serialize};
 use serde_json::Value;
 use tokio::sync::RwLock;

@@ -119,10 +119,10 @@ pub mod transport;
 // re-export
 #[cfg(all(feature = "macros", feature = "server"))]
 #[cfg_attr(docsrs, doc(cfg(all(feature = "macros", feature = "server"))))]
-pub use paste::paste;
+pub use agenterra_rmcp_macros::*;
 #[cfg(all(feature = "macros", feature = "server"))]
 #[cfg_attr(docsrs, doc(cfg(all(feature = "macros", feature = "server"))))]
-pub use agenterra_rmcp_macros::*;
+pub use paste::paste;
 #[cfg(all(feature = "macros", feature = "server"))]
 #[cfg_attr(docsrs, doc(cfg(all(feature = "macros", feature = "server"))))]
 pub use schemars;

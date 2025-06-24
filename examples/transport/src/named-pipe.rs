@@ -3,8 +3,8 @@ mod common;
 #[cfg(target_family = "windows")]
 #[tokio::main]
 async fn main() -> anyhow::Result<()> {
-    use common::calculator::Calculator;
     use agenterra_rmcp::{serve_client, serve_server};
+    use common::calculator::Calculator;
     use tokio::net::windows::named_pipe::{ClientOptions, ServerOptions};
     const PIPE_NAME: &str = r"\\.\pipe\rmcp_example";
 

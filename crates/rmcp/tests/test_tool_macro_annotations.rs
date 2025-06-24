@@ -1,6 +1,8 @@
 #[cfg(test)]
 mod tests {
-    use agenterra_rmcp::{ServerHandler, handler::server::router::tool::ToolRouter, tool, tool_handler};
+    use agenterra_rmcp::{
+        ServerHandler, handler::server::router::tool::ToolRouter, tool, tool_handler,
+    };
 
     #[derive(Debug, Clone, Default)]
     pub struct AnnotatedServer {

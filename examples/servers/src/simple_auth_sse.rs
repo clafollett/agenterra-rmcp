@@ -7,6 +7,7 @@
 /// curl -H "Authorization: Bearer demo-token" http://127.0.0.1:8000/sse
 use std::{net::SocketAddr, sync::Arc, time::Duration};
 
+use agenterra_rmcp::transport::{SseServer, sse_server::SseServerConfig};
 use anyhow::Result;
 use axum::{
     Json, Router,
@@ -16,7 +17,6 @@ use axum::{
     response::{Html, Response},
     routing::get,
 };
-use agenterra_rmcp::transport::{SseServer, sse_server::SseServerConfig};
 use tokio_util::sync::CancellationToken;
 mod common;
 use common::counter::Counter;

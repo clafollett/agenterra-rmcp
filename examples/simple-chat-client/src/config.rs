@@ -1,7 +1,9 @@
 use std::{collections::HashMap, path::Path, process::Stdio};
 
+use agenterra_rmcp::{
+    RoleClient, ServiceExt, service::RunningService, transport::ConfigureCommandExt,
+};
 use anyhow::Result;
-use agenterra_rmcp::{RoleClient, ServiceExt, service::RunningService, transport::ConfigureCommandExt};
 use serde::{Deserialize, Serialize};
 
 #[derive(Debug, Serialize, Deserialize)]
@@ -45,8 +47,10 @@ impl McpServerTransportConfig {
     pub async fn start(&self) -> Result<RunningService<RoleClient, ()>> {
         let client = match self {
             McpServerTransportConfig::Sse { url } => {
-                let transport =
-                    agenterra_rmcp::transport::sse_client::SseClientTransport::start(url.to_owned()).await?;
+                let transport = agenterra_rmcp::transport::sse_client::SseClientTransport::start(
+                    url.to_owned(),
+                )
+                .await?;
                 ().serve(transport).await?
             }
             McpServerTransportConfig::Stdio {

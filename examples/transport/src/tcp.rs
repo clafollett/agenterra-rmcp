@@ -1,5 +1,5 @@
-use common::calculator::Calculator;
 use agenterra_rmcp::{serve_client, serve_server};
+use common::calculator::Calculator;
 
 mod common;
 #[tokio::main]

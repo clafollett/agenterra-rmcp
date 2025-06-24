@@ -5,8 +5,8 @@ mod common;
 async fn main() -> anyhow::Result<()> {
     use std::fs;
 
-    use common::calculator::Calculator;
     use agenterra_rmcp::{serve_client, serve_server};
+    use common::calculator::Calculator;
     use tokio::net::{UnixListener, UnixStream};
 
     const SOCKET_PATH: &str = "/tmp/rmcp_example.sock";

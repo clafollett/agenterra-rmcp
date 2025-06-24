@@ -1,3 +1,4 @@
+use agenterra_rmcp::{RoleClient, ServiceExt, service::RunningService};
 use common::calculator::Calculator;
 use hyper::{
     Request, StatusCode,
@@ -5,7 +6,6 @@ use hyper::{
     header::{HeaderValue, UPGRADE},
 };
 use hyper_util::rt::TokioIo;
-use agenterra_rmcp::{RoleClient, ServiceExt, service::RunningService};
 use tracing_subscriber::EnvFilter;
 mod common;
 #[tokio::main]

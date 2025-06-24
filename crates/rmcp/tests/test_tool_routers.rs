@@ -1,6 +1,5 @@
 use std::collections::HashMap;
 
-use futures::future::BoxFuture;
 use agenterra_rmcp::{
     ServerHandler,
     handler::server::{
@@ -8,6 +7,7 @@ use agenterra_rmcp::{
         tool::{CallToolHandler, Parameters},
     },
 };
+use futures::future::BoxFuture;
 
 #[derive(Debug, Default)]
 pub struct TestHandler<T: 'static = ()> {

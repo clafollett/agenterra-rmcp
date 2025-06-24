@@ -1,6 +1,6 @@
+use agenterra_rmcp::{ServiceExt, transport::stdio};
 use anyhow::Result;
 use common::counter::Counter;
-use agenterra_rmcp::{ServiceExt, transport::stdio};
 use tracing_subscriber::{self, EnvFilter};
 mod common;
 /// npx @modelcontextprotocol/inspector cargo run -p mcp-server-examples --example std_io
