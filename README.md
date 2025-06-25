@@ -32,7 +32,7 @@ This repository contains the following crates:
 ### Import the crate
 
 ```toml
-agenterra-rmcp = { version = "0.1", features = ["server"] }
+agenterra-rmcp = { version = "0.1.5", features = ["server"] }
 ## or from git
 agenterra-rmcp = { git = "https://github.com/agenterra/agenterra-rmcp", branch = "main" }
 ```

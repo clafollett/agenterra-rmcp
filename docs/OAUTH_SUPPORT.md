@@ -1,5 +1,7 @@
 # Model Context Protocol OAuth Authorization
 
+> **Note**: This documentation is for the Agenterra fork of the official [Model Context Protocol Rust SDK](https://github.com/modelcontextprotocol/rust-sdk).
+
 This document describes the OAuth 2.1 authorization implementation for Model Context Protocol (MCP), following the [MCP 2025-03-26 Authorization Specification](https://spec.modelcontextprotocol.io/specification/2025-03-26/basic/authorization/).
 
 ## Features
@@ -19,7 +21,7 @@ Enable the auth feature in Cargo.toml:
 
 ```toml
 [dependencies]
-rmcp = { version = "0.1", features = ["auth", "transport-sse-client"] }
+agenterra-rmcp = { version = "0.1.5", features = ["auth", "transport-sse-client"] }
 ```
 
 ### 2. Use OAuthState
