@@ -1,4 +1,4 @@
-use rmcp::transport::sse_server::{SseServer, SseServerConfig};
+use agenterra_rmcp::transport::sse_server::{SseServer, SseServerConfig};
 use tracing_subscriber::{
     layer::SubscriberExt,
     util::SubscriberInitExt,

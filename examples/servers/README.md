@@ -108,7 +108,7 @@ See [inspector](https://github.com/modelcontextprotocol/inspector)
 
 These examples use the following main dependencies:
 
-- `rmcp`: Rust implementation of the MCP server library
+- `agenterra-rmcp`: Rust implementation of the MCP server library
 - `tokio`: Asynchronous runtime
 - `serde` and `serde_json`: For JSON serialization and deserialization
 - `tracing` and `tracing-subscriber`: For logging

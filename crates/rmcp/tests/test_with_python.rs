@@ -1,8 +1,8 @@
-use axum::Router;
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     transport::{ConfigureCommandExt, SseServer, TokioChildProcess, sse_server::SseServerConfig},
 };
+use axum::Router;
 use tokio::time::timeout;
 use tokio_util::sync::CancellationToken;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};

@@ -1,11 +1,11 @@
 use std::collections::HashMap;
 
-use rig::tool::{ToolDyn as RigTool, ToolEmbeddingDyn, ToolSet};
-use rmcp::{
+use agenterra_rmcp::{
     RoleClient,
     model::{CallToolRequestParam, CallToolResult, Tool as McpTool},
     service::{RunningService, ServerSink},
 };
+use rig::tool::{ToolDyn as RigTool, ToolEmbeddingDyn, ToolSet};
 
 pub struct McpToolAdaptor {
     tool: McpTool,

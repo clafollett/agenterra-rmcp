@@ -1,12 +1,12 @@
 mod common;
+use agenterra_rmcp::transport::streamable_http_server::{
+    StreamableHttpService, session::local::LocalSessionManager,
+};
 use common::counter::Counter;
 use hyper_util::{
     rt::{TokioExecutor, TokioIo},
     server::conn::auto::Builder,
     service::TowerToHyperService,
-};
-use rmcp::transport::streamable_http_server::{
-    StreamableHttpService, session::local::LocalSessionManager,
 };
 
 #[tokio::main]

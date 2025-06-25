@@ -2,29 +2,39 @@
 <a href="docs/readme/README.zh-cn.md">简体中文(待更新)</a>
 </div>
 
-# RMCP
-Wait for the first release.
-<!-- [![Crates.io Version](todo)](todo) -->
-<!-- ![Release status](https://github.com/modelcontextprotocol/rust-sdk/actions/workflows/release.yml/badge.svg) -->
-<!-- [![docs.rs](todo)](todo) -->
+# agenterra-rmcp
+
+[![Crates.io Version](https://img.shields.io/crates/v/agenterra-rmcp)](https://crates.io/crates/agenterra-rmcp)
+[![docs.rs](https://docs.rs/agenterra-rmcp/badge.svg)](https://docs.rs/agenterra-rmcp)
 ![Coverage](docs/coverage.svg)
 
-An official rust Model Context Protocol SDK implementation with tokio async runtime.
+An Agenterra fork of the official Rust Model Context Protocol SDK implementation with tokio async runtime.
+
+> **Note**: This is a fork of the [official Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) for the Model Context Protocol. We maintain this fork to provide a stable, published version on crates.io while staying in sync with upstream changes.
+
+## Attribution
+
+This project is based on the official Model Context Protocol Rust SDK developed by Anthropic and the MCP community. The original repository can be found at: https://github.com/modelcontextprotocol/rust-sdk
+
+All credit for the core implementation goes to the original authors. This fork exists to:
+- Provide published crates on crates.io under the `agenterra-rmcp` namespace
+- Enable easier integration for projects that need a stable, versioned dependency
+- Maintain compatibility with upstream changes
 
 
 This repository contains the following crates:
 
-- [rmcp](crates/rmcp): The core crate providing the RMCP protocol implementation( If you want to get more information, please visit [rmcp](crates/rmcp/README.md))
-- [rmcp-macros](crates/rmcp-macros): A procedural macro crate for generating RMCP tool implementations(If you want to get more information, please visit [rmcp-macros](crates/rmcp-macros/README.md))
+- [agenterra-rmcp](crates/rmcp): The core crate providing the MCP protocol implementation (If you want to get more information, please visit [agenterra-rmcp](crates/rmcp/README.md))
+- [agenterra-rmcp-macros](crates/rmcp-macros): A procedural macro crate for generating MCP tool implementations (If you want to get more information, please visit [agenterra-rmcp-macros](crates/rmcp-macros/README.md))
 
 ## Usage
 
 ### Import the crate
 
 ```toml
-rmcp = { version = "0.1", features = ["server"] }
-## or dev channel
-rmcp = { git = "https://github.com/modelcontextprotocol/rust-sdk", branch = "main" }
+agenterra-rmcp = { version = "0.1", features = ["server"] }
+## or from git
+agenterra-rmcp = { git = "https://github.com/agenterra/agenterra-rmcp", branch = "main" }
 ```
 ### Third Dependencies
 Basic dependencies:
@@ -38,7 +48,7 @@ Basic dependencies:
 <summary>Start a client</summary>
 
 ```rust, ignore
-use rmcp::{ServiceExt, transport::{TokioChildProcess, ConfigureCommandExt}};
+use agenterra_rmcp::{ServiceExt, transport::{TokioChildProcess, ConfigureCommandExt}};
 use tokio::process::Command;
 
 #[tokio::main]

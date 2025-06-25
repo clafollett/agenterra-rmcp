@@ -1,6 +1,6 @@
 use std::sync::Arc;
 
-use rmcp::{
+use agenterra_rmcp::{
     ClientHandler, ServerHandler, ServiceExt,
     model::{
         ResourceUpdatedNotificationParam, ServerCapabilities, ServerInfo, SubscribeRequestParam,
@@ -25,9 +25,9 @@ impl ServerHandler for Server {
 
     async fn subscribe(
         &self,
-        request: rmcp::model::SubscribeRequestParam,
-        context: rmcp::service::RequestContext<rmcp::RoleServer>,
-    ) -> Result<(), rmcp::Error> {
+        request: agenterra_rmcp::model::SubscribeRequestParam,
+        context: agenterra_rmcp::service::RequestContext<agenterra_rmcp::RoleServer>,
+    ) -> Result<(), agenterra_rmcp::Error> {
         let uri = request.uri;
         let peer = context.peer;
 
@@ -54,8 +54,8 @@ pub struct Client {
 impl ClientHandler for Client {
     async fn on_resource_updated(
         &self,
-        params: rmcp::model::ResourceUpdatedNotificationParam,
-        _context: rmcp::service::NotificationContext<rmcp::RoleClient>,
+        params: agenterra_rmcp::model::ResourceUpdatedNotificationParam,
+        _context: agenterra_rmcp::service::NotificationContext<agenterra_rmcp::RoleClient>,
     ) {
         let uri = params.uri;
         tracing::info!("Resource updated: {}", uri);

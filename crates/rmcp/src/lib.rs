@@ -19,7 +19,7 @@
 //!
 //! ```rust
 //! use std::sync::Arc;
-//! use rmcp::{Error as McpError, model::*, tool, tool_router, handler::server::tool::ToolRouter};
+//! use agenterra_rmcp::{Error as McpError, model::*, tool, tool_router, handler::server::tool::ToolRouter};
 //! use tokio::sync::Mutex;
 //!
 //! #[derive(Clone)]
@@ -60,7 +60,7 @@
 //!
 //! ```rust
 //! use anyhow::Result;
-//! use rmcp::{model::CallToolRequestParam, service::ServiceExt, transport::{TokioChildProcess, ConfigureCommandExt}};
+//! use agenterra_rmcp::{model::CallToolRequestParam, service::ServiceExt, transport::{TokioChildProcess, ConfigureCommandExt}};
 //! use tokio::process::Command;
 //!
 //! async fn client() -> Result<()> {
@@ -119,10 +119,10 @@ pub mod transport;
 // re-export
 #[cfg(all(feature = "macros", feature = "server"))]
 #[cfg_attr(docsrs, doc(cfg(all(feature = "macros", feature = "server"))))]
-pub use paste::paste;
+pub use agenterra_rmcp_macros::*;
 #[cfg(all(feature = "macros", feature = "server"))]
 #[cfg_attr(docsrs, doc(cfg(all(feature = "macros", feature = "server"))))]
-pub use rmcp_macros::*;
+pub use paste::paste;
 #[cfg(all(feature = "macros", feature = "server"))]
 #[cfg_attr(docsrs, doc(cfg(all(feature = "macros", feature = "server"))))]
 pub use schemars;

@@ -5,8 +5,8 @@ mod common;
 async fn main() -> anyhow::Result<()> {
     use std::fs;
 
+    use agenterra_rmcp::{serve_client, serve_server};
     use common::calculator::Calculator;
-    use rmcp::{serve_client, serve_server};
     use tokio::net::{UnixListener, UnixStream};
 
     const SOCKET_PATH: &str = "/tmp/rmcp_example.sock";
@@ -46,9 +46,9 @@ async fn main() -> anyhow::Result<()> {
             println!("Calling sum tool: {}", sum_tool.name);
             let result = client
                 .peer()
-                .call_tool(rmcp::model::CallToolRequestParam {
+                .call_tool(agenterra_rmcp::model::CallToolRequestParam {
                     name: sum_tool.name.clone(),
-                    arguments: Some(rmcp::object!({
+                    arguments: Some(agenterra_rmcp::object!({
                         "a": 10,
                         "b": 20
                     })),

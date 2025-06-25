@@ -1,13 +1,13 @@
 use std::collections::HashMap;
 
-use futures::future::BoxFuture;
-use rmcp::{
+use agenterra_rmcp::{
     ServerHandler,
     handler::server::{
         router::tool::ToolRouter,
         tool::{CallToolHandler, Parameters},
     },
 };
+use futures::future::BoxFuture;
 
 #[derive(Debug, Default)]
 pub struct TestHandler<T: 'static = ()> {
@@ -26,23 +26,23 @@ pub struct Sum {
     pub b: i32,
 }
 
-#[rmcp::tool_router(router = test_router_1)]
+#[agenterra_rmcp::tool_router(router = test_router_1)]
 impl<T> TestHandler<T> {
-    #[rmcp::tool]
+    #[agenterra_rmcp::tool]
     async fn async_method(&self, Parameters(Request { fields }): Parameters<Request>) {
         drop(fields)
     }
 }
 
-#[rmcp::tool_router(router = test_router_2)]
+#[agenterra_rmcp::tool_router(router = test_router_2)]
 impl<T> TestHandler<T> {
-    #[rmcp::tool]
+    #[agenterra_rmcp::tool]
     fn sync_method(&self, Parameters(Request { fields }): Parameters<Request>) {
         drop(fields)
     }
 }
 
-#[rmcp::tool]
+#[agenterra_rmcp::tool]
 async fn async_function<T>(
     _callee: &TestHandler<T>,
     Parameters(Request { fields }): Parameters<Request>,
@@ -50,7 +50,7 @@ async fn async_function<T>(
     drop(fields)
 }
 
-#[rmcp::tool]
+#[agenterra_rmcp::tool]
 fn async_function2<T>(_callee: &TestHandler<T>) -> BoxFuture<'_, ()> {
     Box::pin(async move {})
 }

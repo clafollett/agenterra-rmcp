@@ -1,10 +1,10 @@
-use anyhow::Result;
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::{CallToolRequestParam, GetPromptRequestParam, ReadResourceRequestParam},
     object,
     transport::{ConfigureCommandExt, TokioChildProcess},
 };
+use anyhow::Result;
 use tokio::process::Command;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 

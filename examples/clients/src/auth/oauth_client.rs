@@ -1,13 +1,6 @@
 use std::{net::SocketAddr, sync::Arc};
 
-use anyhow::{Context, Result};
-use axum::{
-    Router,
-    extract::{Query, State},
-    response::Html,
-    routing::get,
-};
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::ClientInfo,
     transport::{
@@ -15,6 +8,13 @@ use rmcp::{
         auth::{AuthClient, OAuthState},
         sse_client::SseClientConfig,
     },
+};
+use anyhow::{Context, Result};
+use axum::{
+    Router,
+    extract::{Query, State},
+    response::Html,
+    routing::get,
 };
 use serde::Deserialize;
 use tokio::{

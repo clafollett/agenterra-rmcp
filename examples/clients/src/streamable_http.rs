@@ -1,9 +1,9 @@
-use anyhow::Result;
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::{CallToolRequestParam, ClientCapabilities, ClientInfo, Implementation},
     transport::StreamableHttpClientTransport,
 };
+use anyhow::Result;
 use tracing_subscriber::{layer::SubscriberExt, util::SubscriberInitExt};
 
 #[tokio::main]

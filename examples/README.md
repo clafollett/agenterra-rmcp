@@ -16,7 +16,7 @@
    {
      "mcpServers": {
        "counter": {
-         "command": "PATH-TO/rust-sdk/target/release/examples/servers_counter_stdio.exe",
+         "command": "PATH-TO/agenterra-rmcp/target/release/examples/servers_counter_stdio.exe",
          "args": []
        }
      }
@@ -29,7 +29,7 @@
    {
      "mcpServers": {
        "counter": {
-         "command": "PATH-TO/rust-sdk/target/release/examples/servers_counter_stdio",
+         "command": "PATH-TO/agenterra-rmcp/target/release/examples/servers_counter_stdio",
          "args": []
        }
      }

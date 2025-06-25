@@ -1,4 +1,4 @@
-use rmcp::model::{JsonRpcResponse, ServerJsonRpcMessage, ServerResult};
+use agenterra_rmcp::model::{JsonRpcResponse, ServerJsonRpcMessage, ServerResult};
 #[test]
 fn test_tool_list_result() {
     let json = std::fs::read("tests/test_deserialization/tool_list_result.json").unwrap();

@@ -1,12 +1,12 @@
 //cargo test --test test_message_protocol --features "client server"
 
 mod common;
-use common::handlers::{TestClientHandler, TestServer};
-use rmcp::{
+use agenterra_rmcp::{
     ServiceExt,
     model::*,
     service::{RequestContext, Service},
 };
+use common::handlers::{TestClientHandler, TestServer};
 use tokio_util::sync::CancellationToken;
 
 // Tests start here

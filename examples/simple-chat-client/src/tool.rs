@@ -1,11 +1,11 @@
 use std::{collections::HashMap, sync::Arc};
 
-use anyhow::Result;
-use async_trait::async_trait;
-use rmcp::{
+use agenterra_rmcp::{
     model::{CallToolRequestParam, CallToolResult, Tool as McpTool},
     service::ServerSink,
 };
+use anyhow::Result;
+use async_trait::async_trait;
 use serde_json::Value;
 
 use crate::{

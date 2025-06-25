@@ -13,10 +13,10 @@ thiserror = "2.0"
 async-trait = "0.1"
 futures = "0.3"
 toml = "0.8"
-rmcp = { workspace = true, features = [
+agenterra-rmcp = { workspace = true, features = [
     "client",
     "transport-child-process",
     "transport-sse-client",
     "reqwest"
-], no-default-features = true }
+] }
 clap = { version = "4.0", features = ["derive"] }

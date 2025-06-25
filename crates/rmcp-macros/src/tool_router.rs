@@ -1,5 +1,5 @@
 //! ```ignore
-//! #[rmcp::tool_router(router)]
+//! #[agenterra_rmcp::tool_router(router)]
 //! impl Handler {
 //!
 //! }
@@ -31,7 +31,7 @@ pub fn tool_router(attr: TokenStream, input: TokenStream) -> syn::Result<TokenSt
     let attr_args = NestedMeta::parse_meta_list(attr)?;
     let ToolRouterAttribute { router, vis } = ToolRouterAttribute::from_list(&attr_args)?;
     let mut item_impl = syn::parse2::<ItemImpl>(input.clone())?;
-    // find all function marked with `#[rmcp::tool]`
+    // find all function marked with `#[agenterra_rmcp::tool]`
     let tool_attr_fns: Vec<_> = item_impl
         .items
         .iter()
@@ -60,8 +60,8 @@ pub fn tool_router(attr: TokenStream, input: TokenStream) -> syn::Result<TokenSt
         })
     }
     let router_fn = syn::parse2::<ImplItem>(quote! {
-        #vis fn #router() -> rmcp::handler::server::router::tool::ToolRouter<Self> {
-            rmcp::handler::server::router::tool::ToolRouter::<Self>::new()
+        #vis fn #router() -> agenterra_rmcp::handler::server::router::tool::ToolRouter<Self> {
+            agenterra_rmcp::handler::server::router::tool::ToolRouter::<Self>::new()
                 #(#routers)*
         }
     })?;

@@ -1,7 +1,7 @@
 use std::error::Error;
 mod common;
+use agenterra_rmcp::serve_server;
 use common::generic_service::{GenericService, MemoryDataService};
-use rmcp::serve_server;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn Error>> {

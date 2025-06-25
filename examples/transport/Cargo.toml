@@ -15,7 +15,7 @@ readme = { workspace = true }
 all-features = true
 
 [dependencies]
-rmcp = { path = "../../crates/rmcp", features = ["server", "client"] }
+agenterra-rmcp = { workspace = true, features = ["server", "client"] }
 tokio = { version = "1", features = [
     "macros",
     "rt",

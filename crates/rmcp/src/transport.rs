@@ -40,7 +40,7 @@
 //! ## Examples
 //!
 //! ```rust
-//! # use rmcp::{
+//! # use agenterra_rmcp::{
 //! #     ServiceExt, serve_client, serve_server,
 //! # };
 //!

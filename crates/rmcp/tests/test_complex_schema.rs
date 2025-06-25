@@ -1,4 +1,4 @@
-use rmcp::{
+use agenterra_rmcp::{
     Error as McpError, handler::server::tool::Parameters, model::*, schemars, tool, tool_router,
 };
 use serde::{Deserialize, Serialize};

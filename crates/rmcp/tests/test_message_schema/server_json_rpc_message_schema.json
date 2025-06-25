@@ -1299,7 +1299,7 @@
     },
     "ServerCapabilities": {
       "title": "Builder",
-      "description": "```rust # use rmcp::model::ServerCapabilities; let cap = ServerCapabilities::builder() .enable_logging() .enable_experimental() .enable_prompts() .enable_resources() .enable_tools() .enable_tool_list_changed() .build(); ```",
+      "description": "```rust # use agenterra_rmcp::model::ServerCapabilities; let cap = ServerCapabilities::builder() .enable_logging() .enable_experimental() .enable_prompts() .enable_resources() .enable_tools() .enable_tool_list_changed() .build(); ```",
       "type": "object",
       "properties": {
         "completions": {
