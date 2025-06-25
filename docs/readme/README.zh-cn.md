@@ -1,7 +1,9 @@
-# RMCP
-[![Crates.io Version](https://img.shields.io/crates/v/rmcp)](https://crates.io/crates/rmcp)
-![Release status](https://github.commodelcontextprotocol/rust-sdk/actions/workflows/release.yml/badge.svg)
-[![docs.rs](https://img.shields.io/docsrs/rmcp)](https://docs.rs/rmcp/latest/rmcp)
+# Agenterra RMCP
+
+> **注意**: 这是官方 [Model Context Protocol Rust SDK](https://github.com/modelcontextprotocol/rust-sdk) 的分支版本。为了发布到 crates.io，包名已重命名为 `agenterra-rmcp` 和 `agenterra-rmcp-macros`。
+
+[![Crates.io Version](https://img.shields.io/crates/v/agenterra-rmcp)](https://crates.io/crates/agenterra-rmcp)
+[![docs.rs](https://img.shields.io/docsrs/agenterra-rmcp)](https://docs.rs/agenterra-rmcp/latest/agenterra_rmcp)
 
 一个基于tokio异步运行时的官方Model Context Protocol SDK实现。
 
@@ -9,15 +11,15 @@
 
 ### 导入
 ```toml
-rmcp = { version = "0.1", features = ["server"] }
+agenterra-rmcp = { version = "0.1.5", features = ["server"] }
 ## 或者开发者频道
-rmcp = { git = "https://github.com/modelcontextprotocol/rust-sdk", branch = "main" }
+agenterra-rmcp = { git = "https://github.com/clafollett/agenterra-rmcp", branch = "main" }
 ```
 
 ### 快速上手
 一行代码启动客户端：
 ```rust
-use rmcp::{ServiceExt, transport::{TokioChildProcess, ConfigureCommandExt}};
+use agenterra_rmcp::{ServiceExt, transport::{TokioChildProcess, ConfigureCommandExt}};
 use tokio::process::Command;
 
 let client = ().serve(TokioChildProcess::new(Command::new("npx").configure(|cmd| {
@@ -82,7 +84,7 @@ let quit_reason = server.cancel().await?;
 
 请看这个[文件](examples/servers/src/common/calculator.rs)。
 ```rust, ignore
-use rmcp::{ServerHandler, model::ServerInfo, schemars, tool};
+use agenterra_rmcp::{ServerHandler, model::ServerInfo, schemars, tool};
 
 use super::counter::Counter;
 
